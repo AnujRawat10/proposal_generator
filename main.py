@@ -63,7 +63,7 @@ Input:
         proposal_id = save_proposal(response, client_name, domain)
 
         # Shareable link
-        base_url = "https://proposalgenerator-4p6ov7seqdthssanhz7jln.streamlit.app"
+        base_url = "https://proposalgenerator-eqzle7ejucpvhk8mognxbo.streamlit.app/"
         share_url = f"{base_url}/proposal?client={proposal_id}"
 
         st.success("✅ Proposal generated and saved!")
