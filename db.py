@@ -4,7 +4,8 @@ import datetime
 import certifi
 
 client = MongoClient(
-    "mongodb+srv://anujrawat9639:Y2noc8qlyZbYOVyG@cluster0.k0bt7en.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://anujrawat9639:Y2noc8qlyZbYOVyG@cluster0.k0bt7en.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    tls=True,
     tlsCAFile=certifi.where()
 )
 

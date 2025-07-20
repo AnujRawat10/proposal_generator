@@ -3,3 +3,5 @@ requests
 matplotlib
 streamlit-extras
 pymongo
+pymongo==3.13.0
+certifi
