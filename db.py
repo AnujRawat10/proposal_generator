@@ -3,11 +3,9 @@ from bson.objectid import ObjectId
 import datetime
 import certifi
 
-client = MongoClient(
-    "mongodb+srv://anujrawat9639:Y2noc8qlyZbYOVyG@cluster0.k0bt7en.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-    tls=True,
-    tlsCAFile=certifi.where()
-)
+MONGO_URI = "mongodb+srv://anujrawat9639:Y2noc8qlyZbYOVyG@cluster0.k0bt7en.mongodb.net/?retryWrites=true&w=majority"
+
+client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
 
 db = client["proposalgenerator"]
 collection = db["proposals"]
