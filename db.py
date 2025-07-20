@@ -1,9 +1,13 @@
 from pymongo import MongoClient
-import datetime
 from bson.objectid import ObjectId
+import datetime
+import certifi
 
+client = MongoClient(
+    "mongodb+srv://anujrawat9639:Y2noc8qlyZbYOVyG@cluster0.k0bt7en.mongodb.net/?retryWrites=true&w=majority",
+    tlsCAFile=certifi.where()
+)
 
-client = MongoClient("mongodb+srv://anujrawat9639:Y2noc8qlyZbYOVyG@cluster0.k0bt7en.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = client["proposalgenerator"]
 collection = db["proposals"]
 
@@ -16,6 +20,7 @@ def save_proposal(proposal_text, client_name, domain):
     }
     result = collection.insert_one(doc)
     return str(result.inserted_id)
+
 def get_proposal_by_id(proposal_id):
     try:
         doc = collection.find_one({"_id": ObjectId(proposal_id)})
