@@ -3,9 +3,11 @@ from bson.objectid import ObjectId
 import datetime
 import certifi
 
-MONGO_URI = "mongodb+srv://anujrawat9639:Y2noc8qlyZbYOVyG@cluster0.k0bt7en.mongodb.net/?retryWrites=true&w=majority"
+# Use clean base URI — no query params
+MONGO_URI = "mongodb+srv://anujrawat9639:Y2noc8qlyZbYOVyG@cluster0.k0bt7en.mongodb.net"
 
-client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
+# Use certifi for SSL verification (required on Streamlit Cloud)
+client = MongoClient(MONGO_URI, tls=True, tlsCAFile=certifi.where())
 
 db = client["proposalgenerator"]
 collection = db["proposals"]
