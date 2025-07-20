@@ -29,4 +29,6 @@ Thumbs.db
 .env
 
 # Proposals folder if dynamically generated
-proposals/*.txt
+!proposals/
+!proposals/*.txt
+

@@ -2,8 +2,6 @@
 
 import streamlit as st
 import requests
-import uuid
-import os
 from db import save_proposal
 
 st.set_page_config(page_title="Generate Proposal", layout="centered")
@@ -61,16 +59,12 @@ Input:
         # Fetch proposal from model
         response = fetch_response(full_prompt, "GPT 4o mini")
 
-        # Save to proposals directory
-        proposal_id = str(uuid.uuid4())
-        os.makedirs("proposals", exist_ok=True)
-        with open(f"proposals/{proposal_id}.txt", "w", encoding="utf-8") as f:
-            f.write(response)
+        # Save to MongoDB
+        proposal_id = save_proposal(response, client_name, domain)
 
         # Shareable link
-        base_url = "https://your-streamlit-app-url.streamlit.app"
+        base_url = "https://proposalgenerator-4p6ov7seqdthssanhz7jln.streamlit.app"
         share_url = f"{base_url}/proposal?client={proposal_id}"
-
 
         st.success("✅ Proposal generated and saved!")
         st.markdown(f"🔗 [Click to view/share proposal]({share_url})")
