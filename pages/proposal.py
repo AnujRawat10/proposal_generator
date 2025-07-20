@@ -1,8 +1,8 @@
 import streamlit as st
-import os
 
-# --- Get query parameter ---
-query_params = st.experimental_get_query_params()
+
+query_params = st.query_params
+import os
 client = query_params.get("client", [None])[0]
 
 st.set_page_config(page_title="Proposal Generator", layout="wide", initial_sidebar_state="collapsed")

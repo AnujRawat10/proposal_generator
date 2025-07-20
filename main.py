@@ -69,7 +69,8 @@ Input:
 
         # Shareable link
         base_url = "https://your-streamlit-app-url.streamlit.app"
-        share_url = f"{base_url}/?client={proposal_id}"
+        share_url = f"{base_url}/proposal?client={proposal_id}"
+
 
         st.success("✅ Proposal generated and saved!")
         st.markdown(f"🔗 [Click to view/share proposal]({share_url})")
